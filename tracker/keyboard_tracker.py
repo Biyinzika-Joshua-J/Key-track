@@ -1,7 +1,7 @@
 import keyboard
 import sqlite3
 from datetime import datetime
-from utils import is_a_special_char
+from tracker.utils import is_a_special_char
 
 def create_db_tables():
     connection = sqlite3.connect('data.db')
