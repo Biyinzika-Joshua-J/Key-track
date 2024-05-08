@@ -1,7 +1,7 @@
 import keyboard
 import sqlite3
-import re
 from datetime import datetime
+from utils import is_a_special_char
 
 def create_db_tables():
     connection = sqlite3.connect('data.db')
@@ -29,14 +29,6 @@ def check_if_date_exists(date):
     connection.commit()
     connection.close()
     return id
-
-def is_a_special_char(char):
-    special_chars_regex = re.compile(r'[^\w\s]')
-   
-    if special_chars_regex.search(char):
-        return True
-
-    return False
 
 def add_keypress_frequecy(key_name, date_id):
     connection = sqlite3.connect('data.db')
@@ -79,7 +71,3 @@ create_db_tables()
 keyboard.on_press(key_press)
 
 keyboard.wait('esc')
-
-
-    
-
